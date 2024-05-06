@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:36:21 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/06 17:12:11 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:23:31 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ void	ft_strcpy(char *dst, const char *src)
 	dst[i] = '\0';
 }
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
-	int	i;
-	int	sign;
-	int	res;
+	long	i;
+	long	sign;
+	long	res;
 
 	i = 0;
 	sign = 1;
@@ -84,23 +84,24 @@ int	ft_atoi(char *str)
 	return (res * sign);
 }
 
-int	check_duplicates(int *str)
-{
-	int i = 0;
-	int j;
+// void	check_duplicates(char **ptr)
+// {
+// 	int i = 0;
+// 	int j = 0;
+// 	long *a;
 
-	while (str[i] != 0)
-	{
-		j = i + 1;
-		while (str[j] != 0)
-		{
-			if (str[i] == str[j])
-			{
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
+// 	while (ptr[i])
+// 		i++;
+// 	a = malloc(sizeof(long) * i);
+// 	i = 0;
+// 	while (ptr[i])
+// 	{
+// 		a[i] = ft_atoi(ptr[i]);
+// 		i++;
+// 	}
+// 	while (a[j])
+// 	{
+// 		printf("apa == %ld \n", a[j]);
+// 		j++;
+// 	}
+// }

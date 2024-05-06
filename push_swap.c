@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:13:19 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/06 16:49:59 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/06 19:21:38 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,58 @@ char	*convert(int ac, char **av)
 	{
 		strcpy(result + index, av[i]);
 		if (i + 1 < ac)
-        {
-          index = ft_strlen(result);
-          result[index] = ' ';
-        }
+		{
+			index = ft_strlen(result);
+			result[index] = ' ';
+		}
 		index++;
 		i++;
 	}
 	result[len - 1] = '\0';
 	return (result);
+}
+
+void	check_dup2(long *a, int d)
+{
+	int i;
+	int j;
+	int p;
+
+	p = 0;
+	i = 0;
+	j = 0;
+	while (i < d)
+	{
+		while (j < d)
+		{
+			if (a[i] == a[j++])
+			{
+				if (p == 1)
+					error();
+				p = 1;
+			}
+			j++;
+		}
+		p = 0;
+		j = 0;
+		i++;
+	}
+}
+
+void	check_duplicates(char **ptr)
+{
+	int		i;
+	int		d;
+	long	*a;
+
+	i = -1;
+	d = 0;
+	while (ptr[d])
+		d++;
+	a = malloc(sizeof(long) * d);
+	while (ptr[++i])
+		a[i] = ft_atoi(ptr[i]);
+	check_dup2(a,d);
 }
 #include <stdio.h>
 
@@ -69,19 +112,8 @@ int	main(int ac, char **av)
 	check_ifnumber(ac, av);
 	str = convert(ac, av);
 	printf("%s\n", str);
-	ptr = ft_split(str , ' ');
-	while (ptr[i])
-	{
-		printf("%s\n", ptr[i]);
-		i++;
-	}
-	i = 0;
-	number = ft_atoi(ptr[i]);
-	while (ptr[i])
-	{
-		printf("%i" , ft_atoi(ptr[i]));
-		i++;
-	}
+	ptr = ft_split(str, ' ');
+	check_duplicates(ptr);
 
 	free(str);
 	free(ptr);

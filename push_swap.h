@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 08:51:55 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/02 19:09:33 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:23:52 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int		ft_strlen(char *s);
 void	ft_isalpha(char *c);
 void	sign_check(char *s);
 void	ft_strcpy(char *dst, const char *src);
-int		ft_atoi(char *str);
+long	ft_atoi(char *str);
 
 #endif
