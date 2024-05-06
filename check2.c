@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:36:21 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/02 19:09:29 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:12:11 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,10 @@ void	sign_check(char *s)
 
 void	ft_strcpy(char *dst, const char *src)
 {
-	size_t i;
+	size_t	i;
 
 	if (dst == NULL)
 		return ;
-
 	i = 0;
 	while (src[i] != '\0')
 	{
@@ -83,4 +82,25 @@ int	ft_atoi(char *str)
 		res = res * 10 + (str[i++] - 48);
 	}
 	return (res * sign);
+}
+
+int	check_duplicates(int *str)
+{
+	int i = 0;
+	int j;
+
+	while (str[i] != 0)
+	{
+		j = i + 1;
+		while (str[j] != 0)
+		{
+			if (str[i] == str[j])
+			{
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
