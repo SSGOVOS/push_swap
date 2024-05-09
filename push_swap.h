@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 08:51:55 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/06 18:23:52 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/06 22:57:17 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_push
+{
+	int number;
+	int index;
+	struct s_push *next;
+} t_push;
 
 void	check_ifnumber(int ac, char **av);
 int		ifnumber(char *s);

@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:13:19 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/06 19:21:38 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/09 01:54:03 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	check_dup2(long *a, int d)
 					error();
 				p = 1;
 			}
-			j++;
 		}
 		p = 0;
 		j = 0;
@@ -97,6 +96,41 @@ void	check_duplicates(char **ptr)
 		a[i] = ft_atoi(ptr[i]);
 	check_dup2(a,d);
 }
+
+t_push *lstnew(int number)
+{
+	t_push *n;
+
+	n = malloc(sizeof(t_push));
+	n->number = number;
+	n->index = 0;
+	n->next = NULL;
+	return(n);
+}
+
+t_push	*ft_lstlast(t_push *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
+void	ft_lstadd_back(t_push **lst, t_push *new)
+{
+	t_push	*x;
+
+	if (!lst)
+		return ;
+	if ((*lst))
+	{
+		x = ft_lstlast(*lst);
+		x->next = new;
+	}
+	else
+		*lst = new;
+}
+
 #include <stdio.h>
 
 int	main(int ac, char **av)
@@ -105,7 +139,11 @@ int	main(int ac, char **av)
 	char **ptr;
 	int i;
 	int number;
+	t_push *stack_a;
+	t_push *stack_b;
 
+	stack_a = NULL;
+	stack_b = NULL; 
 	i = 0;
 	if (ac == 1)
 		return (0);
@@ -114,7 +152,8 @@ int	main(int ac, char **av)
 	printf("%s\n", str);
 	ptr = ft_split(str, ' ');
 	check_duplicates(ptr);
-
+	while(ptr[i])
+		ft_lstadd_back(&stack_a,lstnew(ft_atoi(ptr[i++])));
 	free(str);
 	free(ptr);
 }
