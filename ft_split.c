@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:16:20 by amoubine          #+#    #+#             */
-/*   Updated: 2024/04/30 09:29:17 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:04:43 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,17 @@ char	**ft_split(char *s, char c)
 		return (NULL);
 	at3mr(p, s, c, words);
 	return (p);
+}
+
+void fnfree(char **ptr)
+{
+	int i;
+	
+	i = 0;
+	while (ptr[i])
+	{
+		free(ptr[i]);
+		i++;
+	}
+	free(ptr);
 }

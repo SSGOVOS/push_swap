@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:23:06 by amoubine          #+#    #+#             */
-/*   Updated: 2024/04/30 09:29:48 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:19:37 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*ft_strdup(char *s)
 	ft_strlcpy(p, s, len);
 	return (p);
 }
-char	*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, size_t start, size_t len)
 {
 	size_t	i;
 	char	*ptr;

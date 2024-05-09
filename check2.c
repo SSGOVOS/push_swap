@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:36:21 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/06 18:23:31 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:17:59 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,24 +84,3 @@ long	ft_atoi(char *str)
 	return (res * sign);
 }
 
-// void	check_duplicates(char **ptr)
-// {
-// 	int i = 0;
-// 	int j = 0;
-// 	long *a;
-
-// 	while (ptr[i])
-// 		i++;
-// 	a = malloc(sizeof(long) * i);
-// 	i = 0;
-// 	while (ptr[i])
-// 	{
-// 		a[i] = ft_atoi(ptr[i]);
-// 		i++;
-// 	}
-// 	while (a[j])
-// 	{
-// 		printf("apa == %ld \n", a[j]);
-// 		j++;
-// 	}
-// }

@@ -6,15 +6,15 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:52:25 by amoubine          #+#    #+#             */
-/*   Updated: 2024/04/30 09:50:14 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:20:21 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_strlen(char *s)
+size_t ft_strlen(char *s)
 {
-	int i;
+	size_t i;
 
 	i = 0;
 	while (s[i])
