@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 08:51:55 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/09 16:59:12 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/10 01:04:33 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,6 @@ void				ft_lstadd_front(t_push **list, t_push *new);
 void				push(t_push **add, t_push **remove);
 void				ss(t_push **stack_a, t_push **stack_b);
 void				swap_first_two(t_push **stack_a);
+void	rotate(t_push **stack);
+
 #endif

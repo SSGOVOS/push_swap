@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:05:54 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/09 17:01:52 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/10 00:26:06 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_lstadd_back(t_push **lst, t_push *new)
 	else
 		*lst = new;
 }
-int lstsize(t_push **stack)
+int ft_lstsize(t_push **stack)
 {
 	t_push *tmp;
 	int i;
