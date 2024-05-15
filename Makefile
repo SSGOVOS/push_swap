@@ -1,9 +1,8 @@
 NAME = push_swap
 #Name2 = checker
 CC = cc 
-CFLAGS = -Wall -Wextra -Werror 
-
-SOURCE = check.c check2.c ft_split.c lst.c moves.c parsing.c push_swap.c utils_for_split.c
+CFLAGS = -Wall -Wextra -Werror
+SOURCE = check.c check2.c ft_split.c lst.c moves.c parsing.c push_swap.c utils_for_split.c sort.c
 #SOURCEB = 
 OBJ = ${SOURCE:.c=.o}
 #BOBJ = ${SOURCEB:.c=.o}

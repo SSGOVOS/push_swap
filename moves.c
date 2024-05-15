@@ -6,13 +6,13 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:09:54 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/13 07:14:31 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/14 02:16:30 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_first_two(t_push **stack_a)
+void	swap_first_two(t_push **stack_a, int i)
 {
 	t_push	*first;
 	t_push	*second;
@@ -25,16 +25,20 @@ void	swap_first_two(t_push **stack_a)
 	temp = first->number;
 	first->number = second->number;
 	second->number = temp;
+	if (i == 0)
+		write(1, "sa\n", 3);
+	else
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_push **stack_a, t_push **stack_b)
 {
-	swap_first_two(stack_a);
-	swap_first_two(stack_b);
+	swap_first_two(stack_a, 0);
+	swap_first_two(stack_b, 1);
 	write(1, "ss\n", 3);
 }
 
-void	push(t_push **add, t_push **remove)
+void	push(t_push **add, t_push **remove, int i)
 {
 	t_push	*tmp;
 
@@ -44,9 +48,13 @@ void	push(t_push **add, t_push **remove)
 	*remove = (*remove)->next;
 	tmp->next = NULL;
 	ft_lstadd_front(add, tmp);
+	if (i == 0)
+		write(1, "pa\n", 3);
+	else
+		write(1, "pb\n", 3);
 }
 
-void	rotate(t_push **stack)
+void	rotate(t_push **stack, int i)
 {
 	t_push	*tmp;
 	t_push	*lst;
@@ -59,17 +67,21 @@ void	rotate(t_push **stack)
 	lst = ft_lstlast(lst);
 	tmp2 = (*stack);
 	tmp2->next = NULL;
-	ft_lstadd_back(&tmp , tmp2);
+	ft_lstadd_back(&tmp, tmp2);
 	(*stack) = tmp;
+	if (i == 0)
+		write(1, "ra\n", 3);
+	else
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_push **stack_a, t_push **stack_b)
 {
-	rotate(stack_a);
-	rotate(stack_b);
+	rotate(stack_a, 0);
+	rotate(stack_b, 1);
 }
 
-void	reverse_rotate(t_push **stack)
+void	reverse_rotate(t_push **stack, int i)
 {
 	t_push	*tmp;
 	t_push	*lst;
@@ -81,5 +93,15 @@ void	reverse_rotate(t_push **stack)
 	lst->next = *stack;
 	(*stack)->next = NULL;
 	*stack = tmp;
-	
+	if (i == 0)
+		write(1, "rra\n", 4);
+	else
+		write(1, "rrb\n", 4);
+}
+
+void	rrr(t_push **stack_a, t_push **stack_b)
+{
+	reverse_rotate(stack_a, 0);
+	reverse_rotate(stack_b, 1);
+	write(1, "rrr\n", 4);
 }

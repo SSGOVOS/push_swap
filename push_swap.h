@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 08:51:55 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/10 01:04:33 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/14 06:41:33 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void				ft_isalpha(char *c);
 void				sign_check(char *s);
 void				ft_strcpy(char *dst, const char *src);
 long				ft_atoi(char *str);
-void				swap_first_two(t_push **stack_a);
+void				swap_first_two(t_push **stack_a, int i);
 int					lenght(int ac, char **av);
 char				*convert(int ac, char **av);
 void				check_dup2(long *a, int d);
@@ -53,9 +53,14 @@ int					lstsize(t_push **stack);
 void				ft_lstadd_back(t_push **lst, t_push *new);
 t_push				*ft_lstlast(t_push *lst);
 void				ft_lstadd_front(t_push **list, t_push *new);
-void				push(t_push **add, t_push **remove);
+void				push(t_push **add, t_push **remove, int i);
 void				ss(t_push **stack_a, t_push **stack_b);
-void				swap_first_two(t_push **stack_a);
-void	rotate(t_push **stack);
+void				swap_first_two(t_push **stack_a, int i);
+void				rotate(t_push **stack, int i);
+void				sort_index(t_push **stack);
+int					check_sorted(t_push **stack);
+int					high_index(t_push **stack);
+int					find_index(t_push **stack, int p);
+void				reverse_rotate(t_push **stack, int i);
 
 #endif
