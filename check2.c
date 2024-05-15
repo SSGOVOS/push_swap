@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:36:21 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/09 16:17:59 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/15 05:04:41 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_isalpha(char *c)
 	sign_check(c);
 	while (c[i])
 	{
-		if ((c[i] > 64 && c[i] < 91) || (c[i] > 96 && c[i] < 123))
+		if (c[i] != 45 && c[i] != 43 && ((c[i] > 64 && c[i] < 91) || (c[i] > 96 && c[i] < 123) || (c[i] >= 33 && c[i] <= 47)))
 			error();
 		i++;
 	}
@@ -79,8 +79,10 @@ long	ft_atoi(char *str)
 	}
 	while (str[i] >= 48 && str[i] <= 57)
 	{
-		res = res * 10 + (str[i++] - 48);
+		res = res * 10 + (str[i] - 48);
+		if (res * sign > 2147483647 || res * sign < -2147483648)
+			error();
+		i++;
 	}
 	return (res * sign);
 }
-

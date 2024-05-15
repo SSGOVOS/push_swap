@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 08:51:55 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/14 06:41:33 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/15 05:13:52 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void				check_duplicates(char **ptr);
 t_push				*lstnew(int number);
 void				fnfree(char **ptr);
 void				free_lst(t_push **stack);
-int					lstsize(t_push **stack);
+int					ft_lstsize(t_push **stack);
 void				ft_lstadd_back(t_push **lst, t_push *new);
 t_push				*ft_lstlast(t_push *lst);
 void				ft_lstadd_front(t_push **list, t_push *new);
@@ -62,5 +62,8 @@ int					check_sorted(t_push **stack);
 int					high_index(t_push **stack);
 int					find_index(t_push **stack, int p);
 void				reverse_rotate(t_push **stack, int i);
+void				sort3(t_push **stack);
+void				sort4(t_push **stack_a, t_push **stack_b);
+void				sort5(t_push **stack_a, t_push **stack_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:52:25 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/09 16:20:21 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/15 04:47:15 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void error()
 }
 int ifnumber(char *s)
 {
-	char *str;
+	char *str;//str = 0.1
 	
 	str = s;
 	if (!*str)

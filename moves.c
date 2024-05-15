@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:09:54 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/14 02:16:30 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/15 04:31:27 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,17 @@ void	reverse_rotate(t_push **stack, int i)
 
 	if (!stack || !*stack || !((*stack)->next))
 		return ;
-	tmp = (*stack)->next;
-	lst = ft_lstlast(*stack);
-	lst->next = *stack;
-	(*stack)->next = NULL;
-	*stack = tmp;
+	tmp = (*stack);
+	lst = ft_lstlast((*stack));
+	while(tmp)
+	{
+		if(tmp->next->number == lst->number)
+			break;
+		tmp = tmp->next;
+	}
+	tmp->next = NULL;
+	lst->next = (*stack);
+	(*stack) = lst;
 	if (i == 0)
 		write(1, "rra\n", 4);
 	else

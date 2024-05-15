@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 06:14:42 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/14 07:12:16 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/15 04:34:42 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@ void	sort3(t_push **stack)
 	t_push	*tmp;
 
 	tmp = (*stack);
-	if (tmp->index > tmp->next->index && high_index(tmp) != tmp->index)
+
+	if (!check_sorted(stack))
+		return ;
+	if (tmp->index > tmp->next->index && high_index(&tmp) != tmp->index)
 		swap_first_two(stack, 0);
-	else if (high_index(tmp) == tmp->index)
+	else if (high_index(&tmp) == tmp->index)
 	{
-		rotate(tmp, 0);
+		rotate(stack, 0);
 		if (tmp->index != 0)
 			swap_first_two(stack, 0);
 	}
-	else if (tmp->index == 0 && tmp->next->index == high_index(tmp))
+	else if (tmp->index == 0 && tmp->next->index == high_index(&tmp))
 	{
 		swap_first_two(stack, 0);
 		rotate(stack, 0);
@@ -38,14 +41,16 @@ void	sort4(t_push **stack_a, t_push **stack_b)
 	t_push	*tmp;
 
 	tmp = (*stack_a);
-	if (high_index(tmp) == tmp->index)
+	if (!check_sorted(stack_a))
+		return ;
+	if (high_index(&tmp) == tmp->index)
 		push(stack_b, stack_a, 1);
-	else if (high_index(tmp) == tmp->next->index)
+	else if (high_index(&tmp) == tmp->next->index)
 	{
 		rotate(stack_a, 0);
 		push(stack_b, stack_a, 1);
 	}
-	else if (high_index(tmp) == tmp->next->next->index)
+	else if (high_index(&tmp) == tmp->next->next->index)
 	{
 		rotate(stack_a, 0);
 		rotate(stack_a, 0);
@@ -58,30 +63,48 @@ void	sort4(t_push **stack_a, t_push **stack_b)
 	}
 	sort3(stack_a);
 	push(stack_a, stack_b, 0);
-	rotate(stack_a , 0);
+	rotate(stack_a, 0);
 }
-void	sort5(t_push **stack_a, t_push **stack_b)
+static void	sort5_util(t_push **stack_a, t_push **stack_b, t_push *tmp)
 {
-	t_push *tmp;
-
-		tmp = (*stack_a);
-	if (high_index(tmp) == tmp->index)
-		push(stack_b, stack_a, 1);
-	else if (high_index(tmp) == tmp->next->index)
-	{
-		rotate(stack_a, 0);
-		push(stack_b, stack_a, 1);
-	}
-	else if (high_index(tmp) == tmp->next->next->index)
+	if (!check_sorted(stack_a))
+		return ;
+	if (high_index(&tmp) == tmp->next->next->index)
 	{
 		rotate(stack_a, 0);
 		rotate(stack_a, 0);
 		push(stack_b, stack_a, 1);
 	}
-	else if ()
+	else if (high_index(&tmp) == tmp->next->next->next->index)
+	{
+		reverse_rotate(stack_a, 0);
+		reverse_rotate(stack_a, 0);
+		push(stack_b, stack_a, 1);
+	}
+	else
 	{
 		reverse_rotate(stack_a, 0);
 		push(stack_b, stack_a, 1);
 	}
-	
+}
+
+void	sort5(t_push **stack_a, t_push **stack_b)
+{
+	t_push	*tmp;
+
+	tmp = (*stack_a);
+	if (!check_sorted(stack_a))
+		return ;
+	if (high_index(&tmp) == tmp->index)
+		push(stack_b, stack_a, 1);
+	else if (high_index(&tmp) == tmp->next->index)
+	{
+		rotate(stack_a, 0);
+		push(stack_b, stack_a, 1);
+	}
+	else
+		sort5_util(stack_a, stack_b, tmp);
+	sort4(stack_a, stack_b);
+	push(stack_a, stack_b, 0);
+	rotate(stack_a, 0);
 }
