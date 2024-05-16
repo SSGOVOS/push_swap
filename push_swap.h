@@ -6,17 +6,23 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 08:51:55 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/15 05:13:52 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/16 04:35:42 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 46
+# endif
+
+# include <fcntl.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
 
 typedef struct s_push
@@ -65,5 +71,14 @@ void				reverse_rotate(t_push **stack, int i);
 void				sort3(t_push **stack);
 void				sort4(t_push **stack_a, t_push **stack_b);
 void				sort5(t_push **stack_a, t_push **stack_b);
+int					find_index_range(t_push *stack_a, int x, int p);
+char				*ft_strdup(char *s);
+char				*ft_strjoin(char *s1, char *s2);
+void				*ft_memmove(void *dest, const void *src, size_t n);
+void				*ft_memcpy(void *dest, const void *src, size_t n);
+char				*get_next_line(int fd);
+void				rrr(t_push **stack_a, t_push **stack_b);
+void				rr(t_push **stack_a, t_push **stack_b);
+char				*ft_strdup(char *s);
 
 #endif

@@ -1,12 +1,13 @@
 NAME = push_swap
-#Name2 = checker
+NAME2 = checker
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror -g
 SOURCE = check.c check2.c ft_split.c lst.c moves.c parsing.c push_swap.c utils_for_split.c sort.c \
-			sort3_4_5.c
-#SOURCEB = 
+			sort3_4_5.c get_next_line_utils.c
+SOURCEB = check.c check2.c ft_split.c lst.c moves_bonus.c parsing.c checker_bonus.c utils_for_split.c sort.c \
+			get_next_line.c get_next_line_utils.c
 OBJ = ${SOURCE:.c=.o}
-#BOBJ = ${SOURCEB:.c=.o}
+BOBJ = ${SOURCEB:.c=.o}
 
 all: ${NAME}
 
@@ -16,13 +17,15 @@ all: ${NAME}
 ${NAME}: ${OBJ}
 		${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 
-#bonus: ${Name2} 
+bonus: ${NAME2} 
 
+${NAME2}: ${BOBJ}
+		${CC} ${CFLAGS} ${BOBJ} -o ${NAME2}
 
 clean:
-	rm -rf ${OBJ}
+	rm -rf ${OBJ} ${BOBJ}
 
 fclean: clean
-	rm -rf ${NAME}
+	rm -rf ${NAME} ${NAME2}
 
-re: fclean all 
+re: fclean all

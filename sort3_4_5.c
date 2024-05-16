@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 06:14:42 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/15 04:34:42 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/16 03:32:56 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	sort3(t_push **stack)
 	t_push	*tmp;
 
 	tmp = (*stack);
-
 	if (!check_sorted(stack))
 		return ;
 	if (tmp->index > tmp->next->index && high_index(&tmp) != tmp->index)
@@ -25,7 +24,7 @@ void	sort3(t_push **stack)
 	else if (high_index(&tmp) == tmp->index)
 	{
 		rotate(stack, 0);
-		if (tmp->index != 0)
+		if ((*stack)->index != 0)
 			swap_first_two(stack, 0);
 	}
 	else if (tmp->index == 0 && tmp->next->index == high_index(&tmp))
@@ -65,6 +64,7 @@ void	sort4(t_push **stack_a, t_push **stack_b)
 	push(stack_a, stack_b, 0);
 	rotate(stack_a, 0);
 }
+
 static void	sort5_util(t_push **stack_a, t_push **stack_b, t_push *tmp)
 {
 	if (!check_sorted(stack_a))

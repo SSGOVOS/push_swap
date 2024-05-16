@@ -6,20 +6,20 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:52:25 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/15 04:47:15 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/16 03:23:28 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t ft_strlen(char *s)
+size_t	ft_strlen(char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
 		i++;
-	return(i);
+	return (i);
 }
 int	ft_isdigit(int c)
 {
@@ -27,24 +27,23 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
-void error()
+void	error(void)
 {
-	write(2, "ERROR\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
-int ifnumber(char *s)
+int	ifnumber(char *s)
 {
-	char *str;//str = 0.1
-	
+	char *str; // str = 0.1
 	str = s;
 	if (!*str)
 		error();
 	ft_isalpha(s);
-    while (*str)
-    {
+	while (*str)
+	{
 		while (*str == ' ')
-            str++;
-        if (*str == '-' || *str == '+')
+			str++;
+		if (*str == '-' || *str == '+')
 		{
 			str--;
 			if (ft_isdigit(*str))
@@ -52,15 +51,15 @@ int ifnumber(char *s)
 			str++;
 			str++;
 		}
-        if (!ft_isdigit(*str))
-            return 0;
-        str++;
-        while (*str == ' ')
-            str++;
-    }
-    return (1);
+		if (!ft_isdigit(*str))
+			error();
+		str++;
+		while (*str == ' ')
+			str++;
+	}
+	return (1);
 }
-void check_ifnumber(int ac , char **av)
+void	check_ifnumber(int ac, char **av)
 {
 	int	i;
 
@@ -68,6 +67,6 @@ void check_ifnumber(int ac , char **av)
 	while (i < ac)
 	{
 		ifnumber(av[i]);
-		i++;	
+		i++;
 	}
 }
