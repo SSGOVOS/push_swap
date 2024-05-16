@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:05:54 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/10 00:26:06 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/16 23:42:39 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_push	*ft_lstlast(t_push *lst)
 		lst = lst->next;
 	return (lst);
 }
+
 void	ft_lstadd_back(t_push **lst, t_push *new)
 {
 	t_push	*x;
@@ -34,10 +35,11 @@ void	ft_lstadd_back(t_push **lst, t_push *new)
 	else
 		*lst = new;
 }
-int ft_lstsize(t_push **stack)
+
+int	ft_lstsize(t_push **stack)
 {
-	t_push *tmp;
-	int i;
+	t_push	*tmp;
+	int		i;
 
 	i = 0;
 	tmp = *stack;
@@ -45,7 +47,7 @@ int ft_lstsize(t_push **stack)
 		return (0);
 	while (tmp)
 	{
-		i++;	
+		i++;
 		tmp = tmp->next;
 	}
 	return (i);

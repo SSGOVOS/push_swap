@@ -20,7 +20,8 @@ void	ft_isalpha(char *c)
 	sign_check(c);
 	while (c[i])
 	{
-		if (c[i] != 45 && c[i] != 43 && ((c[i] > 64 && c[i] < 91) || (c[i] > 96 && c[i] < 123) || (c[i] >= 33 && c[i] <= 47)))
+		if (c[i] != 45 && c[i] != 43 && ((c[i] > 64 && c[i] < 91) || (c[i] > 96
+					&& c[i] < 123) || (c[i] >= 33 && c[i] <= 47)))
 			error();
 		i++;
 	}

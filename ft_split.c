@@ -87,10 +87,10 @@ char	**ft_split(char *s, char c)
 	return (p);
 }
 
-void fnfree(char **ptr)
+void	fnfree(char **ptr)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (ptr[i])
 	{

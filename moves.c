@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:09:54 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/15 04:31:27 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/16 23:44:04 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@ void	swap_first_two(t_push **stack_a, int i)
 		write(1, "sa\n", 3);
 	else
 		write(1, "sb\n", 3);
-}
-
-void	ss(t_push **stack_a, t_push **stack_b)
-{
-	swap_first_two(stack_a, 0);
-	swap_first_two(stack_b, 1);
-	write(1, "ss\n", 3);
 }
 
 void	push(t_push **add, t_push **remove, int i)
@@ -75,12 +68,6 @@ void	rotate(t_push **stack, int i)
 		write(1, "rb\n", 3);
 }
 
-void	rr(t_push **stack_a, t_push **stack_b)
-{
-	rotate(stack_a, 0);
-	rotate(stack_b, 1);
-}
-
 void	reverse_rotate(t_push **stack, int i)
 {
 	t_push	*tmp;
@@ -90,10 +77,10 @@ void	reverse_rotate(t_push **stack, int i)
 		return ;
 	tmp = (*stack);
 	lst = ft_lstlast((*stack));
-	while(tmp)
+	while (tmp)
 	{
-		if(tmp->next->number == lst->number)
-			break;
+		if (tmp->next->number == lst->number)
+			break ;
 		tmp = tmp->next;
 	}
 	tmp->next = NULL;
@@ -103,11 +90,4 @@ void	reverse_rotate(t_push **stack, int i)
 		write(1, "rra\n", 4);
 	else
 		write(1, "rrb\n", 4);
-}
-
-void	rrr(t_push **stack_a, t_push **stack_b)
-{
-	reverse_rotate(stack_a, 0);
-	reverse_rotate(stack_b, 1);
-	write(1, "rrr\n", 4);
 }

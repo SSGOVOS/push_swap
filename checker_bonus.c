@@ -6,11 +6,25 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 03:48:32 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/16 04:47:06 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/16 23:48:55 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	rrr_rr(t_push **stack_a, t_push **stack_b, int i)
+{
+	if (i == 0)
+	{
+		reverse_rotate(stack_a, 0);
+		reverse_rotate(stack_b, 1);
+	}
+	else if (i == 1)
+	{
+		rotate(stack_a, 0);
+		rotate(stack_b, 1);
+	}
+}
 
 char	*ft_strnstr(const char *str, char *to_find, size_t range)
 {
@@ -51,13 +65,13 @@ void	is_valid(t_push **a, t_push **b, char *line)
 	else if (ft_strnstr(line, "rb\n", 3))
 		rotate(b, 1);
 	else if (ft_strnstr(line, "rr\n", 3))
-		rr(a, b);
+		rrr_rr(a, b, 1);
 	else if (ft_strnstr(line, "rra\n", 4))
 		reverse_rotate(a, 1);
 	else if (ft_strnstr(line, "rrb\n", 4))
 		reverse_rotate(b, 1);
 	else if (ft_strnstr(line, "rrr\n", 4))
-		rrr(a, b);
+		rrr_rr(a, b, 0);
 	else if (ft_strnstr(line, "ss\n", 4))
 		ss(a, b);
 	else
@@ -93,11 +107,11 @@ void	read_instructions(t_push **stack_a, t_push **stack_b)
 
 int	main(int ac, char **av)
 {
-	char *str;
-	char **ptr;
-	int i;
-	t_push *stack_a;
-	t_push *stack_b;
+	char	*str;
+	char	**ptr;
+	int		i;
+	t_push	*stack_a;
+	t_push	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;

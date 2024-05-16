@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:23:06 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/16 04:36:28 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/16 23:42:17 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	*ft_calloc(size_t num_elements, size_t element_size)
 	ft_memset(ptr, 0, num_elements * element_size);
 	return (ptr);
 }
+
 size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
 	size_t	i;
@@ -60,10 +61,11 @@ size_t	ft_strlcpy(char *dst, char *src, size_t size)
 	dst[i] = '\0';
 	return (len);
 }
+
 char	*ft_substr(char *s, size_t start, size_t len)
 {
-	size_t i;
-	char *ptr;
+	size_t	i;
+	char	*ptr;
 
 	if (!s)
 		return (NULL);

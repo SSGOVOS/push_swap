@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 03:55:23 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/16 04:30:13 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/16 23:46:34 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,6 @@ void	rotate(t_push **stack, int i)
 		return ;
 }
 
-void	rr(t_push **stack_a, t_push **stack_b)
-{
-	rotate(stack_a, 0);
-	rotate(stack_b, 1);
-}
-
 void	reverse_rotate(t_push **stack, int i)
 {
 	t_push	*tmp;
@@ -83,10 +77,10 @@ void	reverse_rotate(t_push **stack, int i)
 		return ;
 	tmp = (*stack);
 	lst = ft_lstlast((*stack));
-	while(tmp)
+	while (tmp)
 	{
-		if(tmp->next->number == lst->number)
-			break;
+		if (tmp->next->number == lst->number)
+			break ;
 		tmp = tmp->next;
 	}
 	tmp->next = NULL;
@@ -94,10 +88,4 @@ void	reverse_rotate(t_push **stack, int i)
 	(*stack) = lst;
 	if (!i)
 		return ;
-}
-
-void	rrr(t_push **stack_a, t_push **stack_b)
-{
-	reverse_rotate(stack_a, 0);
-	reverse_rotate(stack_b, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:02:50 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/09 16:14:22 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/16 23:49:11 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	lenght(int ac, char **av)
 	}
 	return (len);
 }
+
 char	*convert(int ac, char **av)
 {
 	int		len;

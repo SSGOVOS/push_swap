@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 02:17:09 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/16 04:43:02 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/16 23:45:35 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	check_sorted(t_push **stack)
 {
 	t_push	*tmp1;
 	t_push	*tmp2;
-	
+
 	if (!(*stack) || !(*stack)->next)
 		return (0);
 	tmp1 = (*stack);
@@ -93,6 +93,7 @@ int	high_index(t_push **stack)
 	}
 	return (i);
 }
+
 int	find_index_range(t_push *stack_a, int x, int p)
 {
 	int	i;
