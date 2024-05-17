@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:13:19 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/16 03:17:34 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/17 04:59:27 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,8 @@ void	sort_nbr(t_push **stack_a, t_push **stack_b, int p)
 		if ((*stack_a)->index <= i)
 		{
 			push(stack_b, stack_a, 1);
-			rotate(stack_b, 1);
-			i++;
-		}
-		else if ((*stack_a)->index <= i + p)
-		{
-			push(stack_b, stack_a, 1);
-			i++;
-		}
+		else if (find_index_range(*stack_a, i, p) < ft_lstsize(stack_a) / 2)
+			rotate(stack_a, 0);	}
 		else if (find_index_range(*stack_a, i, p) < ft_lstsize(stack_a) / 2)
 			rotate(stack_a, 0);
 		else
@@ -104,6 +98,7 @@ int	main(int ac, char **av)
 	check_ifnumber(ac, av);
 	str = convert(ac, av);
 	ptr = ft_split(str, ' ');
+	free(str);
 	check_duplicates(ptr);
 	while (ptr[i])
 		ft_lstadd_back(&stack_a, lstnew(ft_atoi(ptr[i++])));
@@ -111,5 +106,5 @@ int	main(int ac, char **av)
 	fnfree(ptr);
 	free_lst(&stack_a);
 	free_lst(&stack_b);
-	free(str);
+	return (0);
 }

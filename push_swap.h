@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 08:51:55 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/16 23:47:03 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/17 02:04:46 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ long				ft_atoi(char *str);
 void				swap_first_two(t_push **stack_a, int i);
 int					lenght(int ac, char **av);
 char				*convert(int ac, char **av);
-void				check_dup2(long *a, int d);
+void				check_dup2(long *a, int d, char **ptr);
 void				check_duplicates(char **ptr);
 t_push				*lstnew(int number);
 void				fnfree(char **ptr);
@@ -76,8 +76,10 @@ char				*ft_strdup(char *s);
 char				*ft_strjoin(char *s1, char *s2);
 void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
-char				*get_next_line(int fd);
+char				*get_next_line(int fd, int flag);
+void				read_instructions(t_push **stack_a, t_push **stack_b);
 void				rrr_rr(t_push **stack_a, t_push **stack_b, int i);
 char				*ft_strdup(char *s);
+void				write_rslt(t_push **stack_a, t_push **stack_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 03:48:32 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/16 23:48:55 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/17 02:16:42 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_strnstr(const char *str, char *to_find, size_t range)
 	return (NULL);
 }
 
-void	is_valid(t_push **a, t_push **b, char *line)
+int	is_valid(t_push **a, t_push **b, char *line)
 {
 	if (ft_strnstr(line, "sa\n", 3))
 		swap_first_two(a, 1);
@@ -75,7 +75,8 @@ void	is_valid(t_push **a, t_push **b, char *line)
 	else if (ft_strnstr(line, "ss\n", 4))
 		ss(a, b);
 	else
-		error();
+		return (0);
+	return (1);
 }
 
 void	read_instructions(t_push **stack_a, t_push **stack_b)
@@ -85,24 +86,20 @@ void	read_instructions(t_push **stack_a, t_push **stack_b)
 	sort_index(stack_a);
 	while (1)
 	{
-		line = get_next_line(0);
+		line = get_next_line(0, 0);
 		if (line == NULL)
 			break ;
-		is_valid(stack_a, stack_b, line);
+		if (is_valid(stack_a, stack_b, line) == 0)
+		{
+			free_lst(stack_a);
+			free_lst(stack_b);
+			free(line);
+			line = get_next_line(0, 1);
+			error();
+		}
 		free(line);
 	}
-	if (*stack_b)
-	{
-		write(1, "KO", 2);
-		free_lst(stack_b);
-	}
-	else if (check_sorted(stack_a))
-	{
-		write(1, "KO", 2);
-		free_lst(stack_b);
-	}
-	else
-		write(1, "OK", 2);
+	write_rslt(stack_a, stack_b);
 }
 
 int	main(int ac, char **av)
@@ -121,12 +118,12 @@ int	main(int ac, char **av)
 	check_ifnumber(ac, av);
 	str = convert(ac, av);
 	ptr = ft_split(str, ' ');
+	free(str);
 	check_duplicates(ptr);
 	while (ptr[i])
 		ft_lstadd_back(&stack_a, lstnew(ft_atoi(ptr[i++])));
-	read_instructions(&stack_a, &stack_b);
 	fnfree(ptr);
+	read_instructions(&stack_a, &stack_b);
 	free_lst(&stack_a);
 	free_lst(&stack_b);
-	free(str);
 }

@@ -6,7 +6,7 @@
 /*   By: amoubine <amoubine@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 01:12:14 by amoubine          #+#    #+#             */
-/*   Updated: 2024/05/16 03:53:39 by amoubine         ###   ########.fr       */
+/*   Updated: 2024/05/17 02:12:04 by amoubine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*ft_free(char *s)
 	return (NULL);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int flag)
 {
 	static char	*buffer;
 	char		*str;
@@ -73,6 +73,8 @@ char	*get_next_line(int fd)
 	char		*nextline;
 	int			i;
 
+	if (flag == 1)
+		return (free(buffer), NULL);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	str = malloc((size_t)BUFFER_SIZE + 1);
@@ -89,9 +91,9 @@ char	*get_next_line(int fd)
 	nextline[i] = '\0';
 	save = ft_strdup(&buffer[i]);
 	free(buffer);
-	buffer = save;
-	return (nextline);
+	return (buffer = save, nextline);
 }
+
 // int	main(void)
 // {
 // 	int		i;
